@@ -1,0 +1,12 @@
+<%- include("partials/head.ejs") %>
+
+
+<h2>Welcome</h2>
+
+
+<% if (user) { %>
+    <% window.location.href = '/books'; %>
+<% } else { %>
+    <a href="/user/logon" class="btn">Login</a>
+    <a href="/user/register" class="btn">Register</a>
+<% } %>
