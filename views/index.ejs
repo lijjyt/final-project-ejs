@@ -5,7 +5,9 @@
 
 
 <% if (user) { %>
-    <% window.location.href = '/books'; %>
+    <script>
+        window.location.href = '/books';
+    </script>
 <% } else { %>
     <a href="/user/logon" class="btn">Login</a>
     <a href="/user/register" class="btn">Register</a>

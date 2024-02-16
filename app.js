@@ -6,6 +6,8 @@ const session = require('express-session');
 const flash = require("connect-flash")
 const cookieParser = require("cookie-parser");
 const userRoutes = require('./routes/users');
+const passport = require("passport");
+const passportInit = require("./passport/passportInit");
 
 const app = express();
 
@@ -53,6 +55,13 @@ if (app.get("env") === "production") {
   sessionParms.cookie.secure = true;
 }
 
+
+app.use(passport.initialize());
+app.use(passport.session());
+passportInit();
+
+app.use(flash());
+
 app.use(session(sessionParms));
 
 app.get("/", (req, res) => {
@@ -81,6 +90,7 @@ const port = process.env.PORT || 3000;
 
 const start = async () => {
   try {
+    await require("./db/connect")(process.env.MONGO_URI);
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );

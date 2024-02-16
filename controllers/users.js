@@ -8,9 +8,14 @@ const logonShow = (req, res) => {
   res.render("logon");
 };
 
-const logonDo = async (req, res, next) => {
-  // Add your login logic here
-};
+const logonDo = (req, res, next) => {
+    passport.authenticate("local", {
+      successRedirect: "/books",
+      failureRedirect: "/logon",
+      failureFlash: true,
+    })(req, res, next);
+    res.redirect('/books');
+  };
 
 const registerShow = (req, res) => {
   res.render("register");
