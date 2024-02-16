@@ -6,7 +6,7 @@ const storeLocals = (req, res, next) => {
     }
     res.locals.info = req.flash("info");
     res.locals.errors = req.flash("error");
-    console.log('res.locals:', res.locals);
+    //console.log(' res.locals:', res.locals);
     next();
   };
   
