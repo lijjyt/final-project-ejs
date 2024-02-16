@@ -9,12 +9,20 @@ const logonShow = (req, res) => {
 };
 
 const logonDo = (req, res, next) => {
-    passport.authenticate("local", {
-      successRedirect: "/books",
-      failureRedirect: "/logon",
-      failureFlash: true,
+    passport.authenticate("local", (err, user, info) => {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            req.flash("error", "Incorrect credentials.");
+        }
+        req.logIn(user, (err) => {
+            if (err) {
+                return next(err);
+            }
+        });
     })(req, res, next);
-    res.redirect('/books');
+    //res.redirect('/user/books');
   };
 
 const registerShow = (req, res) => {
@@ -29,7 +37,7 @@ const registerDo = async (req, res, next) => {
 
   try {
     await User.create(req.body);
-    res.redirect("/books"); // Redirect to the books page after successful registration
+    res.redirect("/books");
   } catch (e) {
     if (e.constructor.name === "ValidationError") {
       parseVErr(e, req);

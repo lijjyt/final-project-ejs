@@ -27,7 +27,7 @@ app.use(
     })
   );
   
-//app.use(flash());
+app.use(flash());
 
 const MongoDBStore = require("connect-mongodb-session")(session);
 const url = process.env.MONGO_URI;
@@ -55,12 +55,16 @@ if (app.get("env") === "production") {
   sessionParms.cookie.secure = true;
 }
 
+app.use(flash());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
 passportInit();
 
-app.use(flash());
+app.use(require("./middleware/storeLocals"));
+
+
 
 app.use(session(sessionParms));
 
