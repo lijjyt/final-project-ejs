@@ -18,6 +18,8 @@ app.set("view engine", "ejs");
 
 app.use(require("body-parser").urlencoded({ extended: true }));
 
+app.use('/styles', express.static('styles'));
+app.use('/scripts', express.static('scripts'));
 
 require("dotenv").config();
 app.use(cookieParser(process.env.SESSION_SECRET));
