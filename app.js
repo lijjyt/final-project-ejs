@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require("connect-flash")
 const cookieParser = require("cookie-parser");
 const userRoutes = require('./routes/users');
+const bookRoutes = require('./routes/books');
 const passport = require("passport");
 const passportInit = require("./passport/passportInit");
 
@@ -73,7 +74,7 @@ app.get("/", (req, res) => {
   });
 
 app.use('/user', userRoutes);
-
+app.use('/books', bookRoutes);
 
 
 
