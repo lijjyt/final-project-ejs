@@ -14,6 +14,14 @@ const getAllBooks = async (req, res) => {
     }
 };
 
+const getEntryPage = async (req, res) => {
+    try {
+        res.render('entry')
+    } catch (error) {
+        throw new error
+    }
+}
+
 const getBookById = (req, res) => {
     res.send("Get book by ID");
 };
@@ -28,8 +36,9 @@ const addNewBook = async (req, res) => {
         const book = await Book.create(req.body);
         res.redirect("/books");
     } catch (error) {
-        console.error(error);
-        throw new NotFoundError(`can't add book`);
+        if (error.name === 'ValidationError') {
+            req.flash('error', 'Please provide title and author.');
+        }
     }
 };
 
@@ -44,6 +53,7 @@ const deleteBook = (req, res) => {
 module.exports = {
     getAllBooks,
     getBookById,
+    getEntryPage,
     addNewBook,
     updateBook,
     deleteBook,
