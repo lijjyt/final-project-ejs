@@ -9,6 +9,8 @@ const userRoutes = require('./routes/users');
 const bookRoutes = require('./routes/books');
 const passport = require("passport");
 const passportInit = require("./passport/passportInit");
+const auth = require("./middleware/auth");
+
 
 const app = express();
 
@@ -74,7 +76,7 @@ app.get("/", (req, res) => {
   });
 
 app.use('/user', userRoutes);
-app.use('/books', bookRoutes);
+app.use('/books',auth, bookRoutes);
 
 
 
