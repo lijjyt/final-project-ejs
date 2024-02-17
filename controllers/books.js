@@ -7,7 +7,6 @@ const {StatusCodes} = require('http-status-codes')
 const getAllBooks = async (req, res) => {
     try {
         const books = await Book.find({ createdBy:req.user._id }).sort('createdAt')
-        console.log(books)
         res.status(StatusCodes.OK).render("books", { books });
 
     } catch (error) {
@@ -51,7 +50,7 @@ const deleteBook = async (req, res) => {
     } = req;
 
     try {
-        const book = await Book.findByIdAndRemove(
+        const book = await Book.findByIdAndDelete(
             { _id: bookId, createdBy: userId },
         );
 
