@@ -1,5 +1,6 @@
 const Book = require('../models/book');
 const {StatusCodes} = require('http-status-codes')
+
 //const { NotFoundError } = require('../errors/notFound');
 
 
@@ -31,17 +32,23 @@ const addNewBook = async (req, res) => {
         if (!req.user._id) {
             throw Error
         }
+
+
         console.log('Creating book entry:', req.body);
-        const book = await Book.create(req.body);
+        const book = await Book.create({
+            ...req.body,
+            createdBy: req.user._id,
+        });
         res.redirect("/books");
     } catch (error) {
         req.flash('error', error.message)
+        res.send(error.message)
     }
 }
 
 const updateBook = async (req, res) => {
     const {
-        body: { title, author, status, start, finish, recommend },
+        body: { title, author, status, start, finish, recommend, createdBy },
         user: { userId },
         params: { id: bookId },
     } = req;
@@ -50,7 +57,7 @@ const updateBook = async (req, res) => {
         if (!title || !author) {
           throw new Error('Title and Author are required');
         }
-    
+        
         const book = await Book.findByIdAndUpdate(
           { _id: bookId, createdBy: userId },
           { title, author, status, start, finish, recommend },

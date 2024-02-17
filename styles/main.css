@@ -1,8 +1,79 @@
-.book-tile {
-    border: 2px solid #353333;  
-    padding: 15px;  
+
+body {
+    background-color: #343a40; 
+    color: #ffffff; 
+  }
+  
+  header {
+    background-color: #212529; 
+    padding: 10px;
+    text-align: center;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+  }
+  
+  .book-tile {
+    border: 1px solid #ffffff; 
+    padding: 10px;
     margin: 10px;
-    width: 200px;
-    display: inline-block;
-    box-sizing: border-box; 
-}
+    background-color: #2d2d2d; 
+    cursor: pointer;
+  }
+  
+  .book-tile:hover {
+    background-color: #3d3d3d; 
+  }
+  
+  button {
+    background-color: #007bff; 
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; 
+  }
+  
+  .modal-content {
+    background-color: #343a40;
+    color: #ffffff; 
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid #454d55; 
+  }
+  
+  .modal-title {
+    color: #ffffff; 
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #454d55; 
+    padding: 15px;
+  }
+  
+  .btn-danger {
+    background-color: #ed1616; 
+    color: #ffffff; 
+  }
+  
+  .close {
+    color: #ffffff;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    background-color: #454d55; 
+    color: #ffffff;
+  }

@@ -25,10 +25,14 @@ $(document).ready(function () {
         e.preventDefault();
         const bookId = $(this).data('id');
         console.log('Book ID:', bookId);
-    
+        var csrfToken = $(this).data('csrf');
+
         jQuery.ajax({
             type: 'DELETE',
             url: `/books/${bookId}`,
+            headers: {
+                'CSRF-Token': csrfToken,
+              },
             success: function (data) {
                 console.log(data);
                 window.location.href = '/books';
@@ -51,8 +55,8 @@ $(document).ready(function () {
         console.log(title)
 
         $('#editModal #editBookId').val(bookId);
-        $('#editModal #editBookTitle').attr('placeholder', title);
-        $('#editModal #editBookAuthor').attr('placeholder', author);
+        $('#editModal #editBookTitle').val(title);
+        $('#editModal #editBookAuthor').val(author);
         $('#editModal #editBookStart').attr('placeholder', start);
         $('#editModal #editBookFinish').attr('placeholder', finish);
 
@@ -73,11 +77,15 @@ $(document).ready(function () {
             finish: $('#editBookFinish').val(),
             recommend: $('#editBookRec').val()
         };
+        var csrfToken = $(this).data('csrf');
 
         jQuery.ajax({
             type: 'PUT',
             url: `/books/${bookId}`,
             data: updatedBook,
+            headers: {
+                'CSRF-Token': csrfToken,
+              },
             success: function (data) {
                 console.log(data);
                 $('#editModal').modal('hide');

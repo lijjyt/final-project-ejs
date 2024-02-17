@@ -32,12 +32,12 @@
   
             <div class="form-group">
               <label for="editBookStart">Started At:</label>
-              <input type="text" class="form-control" id="editBookStart" name="start" placeholder="">
+              <input type="date" class="form-control" id="editBookStart" name="start" placeholder="">
             </div>
   
             <div class="form-group">
               <label for="editBookFinish">Finished At:</label>
-              <input type="text" class="form-control" id="editBookFinish" name="finish" placeholder="">
+              <input type="date" class="form-control" id="editBookFinish" name="finish" placeholder="">
             </div>
   
             <div class="form-group">
@@ -50,7 +50,7 @@
                 </select>
             </div>
   
-            <button type="button" class="btn btn-primary" id="saveEditBtn">Save</button>
+            <button type="button" class="btn btn-primary" id="saveEditBtn" data-csrf="<%= csrfToken %>">Save</button>
           </form>
         </div>
       </div>

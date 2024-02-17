@@ -1,5 +1,9 @@
 const express = require("express");
 require("express-async-errors");
+const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
+const xss = require('xss-clean');
+const csrf = require('csurf');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -23,6 +27,8 @@ app.use('/scripts', express.static('scripts'));
 
 require("dotenv").config();
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(session({ secret: process.env.SESSION_SECRERT, resave: true, saveUninitialized: true }));
+
 
 app.use(
     session({
@@ -60,7 +66,32 @@ if (app.get("env") === "production") {
   sessionParms.cookie.secure = true;
 }
 
-app.use(flash());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'",    
+        'https://code.jquery.com',
+        'https://cdn.jsdelivr.net',
+      ],
+    },
+  })
+);
+
+app.use(xss());
+
+app.use(csrf({ cookie: true }));
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, 
+  message: 'Too many requests from this IP, please try again later.',
+});
+
+app.use(limiter);
 
 
 app.use(passport.initialize());
@@ -72,6 +103,12 @@ app.use(require("./middleware/storeLocals"));
 
 
 app.use(session(sessionParms));
+
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
+
 
 app.get("/", (req, res) => {
     res.render("index", { user: req.user });
@@ -109,3 +146,9 @@ const start = async () => {
 };
 
 start();
+
+module.exports = {
+  getCsrfToken: (req, res) => {
+    return req.csrfToken(); 
+  }
+};

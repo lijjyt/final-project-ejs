@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const parseVErr = require("../utils/parseValidationErr");
 
-
 const logonShow = (req, res) => {
   if (req.user) {
     return res.redirect("/books");
