@@ -1,0 +1,59 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="editBookForm">
+            <input type="hidden" id="editBookId" name="id" value="">
+            
+            <div class="form-group">
+              <label for="editBookTitle">Title:</label>
+              <input type="text" class="form-control" id="editBookTitle" name="title" placeholder="">
+            </div>
+  
+            <div class="form-group">
+              <label for="editBookAuthor">Author:</label>
+              <input type="text" class="form-control" id="editBookAuthor" name="author" placeholder="">
+            </div>
+  
+            <div class="form-group">
+                <label for="editBookStatus">Status:</label>
+                <select class="form-control" id="editBookStatus" name="status">
+                    <option value="unread">Unread</option>
+                    <option value="reading">Reading</option>
+                    <option value="finished">Finished</option>
+                </select>
+            </div>
+  
+            <div class="form-group">
+              <label for="editBookStart">Started At:</label>
+              <input type="text" class="form-control" id="editBookStart" name="start" placeholder="">
+            </div>
+  
+            <div class="form-group">
+              <label for="editBookFinish">Finished At:</label>
+              <input type="text" class="form-control" id="editBookFinish" name="finish" placeholder="">
+            </div>
+  
+            <div class="form-group">
+                <label for="editBookRec">Recommend:</label>
+                <select class="form-control" id="editBookRec" name="rec">
+                    <option value="none">None</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="maybe">Maybe</option>
+                </select>
+            </div>
+  
+            <button type="button" class="btn btn-primary" id="saveEditBtn">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

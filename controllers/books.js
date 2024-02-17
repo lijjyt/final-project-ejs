@@ -39,8 +39,33 @@ const addNewBook = async (req, res) => {
     }
 }
 
-const updateBook = (req, res) => {
-    res.send("Update book by ID");
+const updateBook = async (req, res) => {
+    const {
+        body: { title, author, status, start, finish, recommend },
+        user: { userId },
+        params: { id: bookId },
+    } = req;
+    
+      try {
+        if (!title || !author) {
+          throw new Error('Title and Author are required');
+        }
+    
+        const book = await Book.findByIdAndUpdate(
+          { _id: bookId, createdBy: userId },
+          { title, author, status, start, finish, recommend },
+          { new: true, runValidators: true }
+        );
+    
+        if (!book) {
+          throw new Error('Book not found');
+        }
+    
+        res.status(StatusCodes.OK).json({ book });
+      } catch (error) {
+        console.error(error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+      }
 };
 
 const deleteBook = async (req, res) => {
