@@ -110,7 +110,7 @@
         border-radius: 15px;
     }
     .modal-body {
-        text-align: center; /* Center text horizontally */
+        text-align: center; 
     }
 
     .modal-header {
@@ -122,13 +122,13 @@
     }
 
     .modal-content select {
-        padding: 10px; /* Adjust padding as needed */
-        font-size: 16px; /* Adjust font size as needed */
+        padding: 12px;
+        font-size: 16px; 
     }
 
     .modal-content select,
     .modal-content input {
-    margin: 0 auto; /* Center input fields horizontally */
+    margin: 0 auto; 
 }
 
     .modal-body {
@@ -146,6 +146,21 @@
         color: #eceff1;
         border-radius: 5px; 
     }
+
+    .btn-accent{
+        background-color: #2d4b7e;
+        color: #eceff1;
+        border-radius: 5px; 
+    }
+
+    .btn-logoff {
+        background-color: rgb(218, 98, 77); 
+        color: white; 
+    }
+      
+      .user-info {
+        margin-left: auto;
+      }
 
     .close {
         color: #eceff1;

@@ -1,0 +1,17 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/headers.ejs") %>
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<div class="container">
+  <h2>Book Search</h2>
+  <form id="bookSearchForm">
+    <label for="searchTerm">Search Term:</label>
+    <input type="text" id="searchTerm" name="searchTerm" required>
+    <button type="submit" class="btn">Search</button>
+  </form>
+  <div id="searchResults"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/scripts/search.js"></script>

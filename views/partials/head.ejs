@@ -4,6 +4,15 @@
     <nav>
         <div>
             <a href="/"><button type="button">HOME</button> </a>        
+        </div >
+        <div class="user-info text-right">
+        <% if (user) { %>
+            <p>User <%= user.name %> is logged on.</p>
+            <form method="POST" action="/user/logoff">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn btn-logoff">Logoff</button>
+          </form>
+          <% } %>
         </div>
     </nav>
 </header>

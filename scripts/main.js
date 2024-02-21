@@ -137,18 +137,37 @@ function sortBooks() {
 
 function sortBooksBy(books, sortBy, sortOrder) {
     return books.sort((a, b) => {
-        const aValue = a.getAttribute(`data-${sortBy}`);
-        const bValue = b.getAttribute(`data-${sortBy}`);
+        const aValue = getAttributeValue(a, sortBy);
+        const bValue = getAttributeValue(b, sortBy);
 
         if (sortOrder === 'asc') {
-            return aValue.localeCompare(bValue);
+            return compareValues(aValue, bValue);
         } else if (sortOrder === 'desc') {
-            return bValue.localeCompare(aValue);
+            return compareValues(bValue, aValue);
         }
 
         return 0;
     });
 }
+
+function getAttributeValue(bookElement, sortBy) {
+    if (sortBy === 'date') {
+        return new Date(bookElement.getAttribute('data-created'));
+    } else {
+        return bookElement.getAttribute(`data-${sortBy}`);
+    }
+}
+
+function compareValues(valueA, valueB) {
+    if (valueA instanceof Date && valueB instanceof Date) {
+        return valueA - valueB;
+    } else if (!isNaN(parseFloat(valueA)) && !isNaN(parseFloat(valueB))) {
+        return parseFloat(valueA) - parseFloat(valueB);
+    } else {
+        return valueA.localeCompare(valueB);
+    }
+}
+
 
 function clearBooks() {
     const booksContainer = document.getElementById('books-container');
