@@ -48,7 +48,7 @@ const addNewBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
     const {
-        body: { title, author, status, start, finish, recommend, createdBy },
+        body: { title, author, status, start, finish, recommend },
         user: { userId },
         params: { id: bookId },
     } = req;

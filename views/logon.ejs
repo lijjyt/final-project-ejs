@@ -1,21 +1,21 @@
 <%- include("partials/head.ejs") %>
 <%- include("partials/headers.ejs") %>
 
+<link rel="stylesheet" href="/styles/main.css">
 
 <form method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <div>
-        <label name="email">Enter your email:</label>
-        <input name="email" />
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" class="form-control" />
     </div>
-    <div>
-        <label name="password">Enter your password:</label>
-        <input type="password" name="password" />
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" class="form-control" />
     </div>
-    <div>
-        <button>Logon</button>
-        <a href="/">
-        <button type="button">Cancel</button>       
-        </a>
+    <div class="login-container">
+        <button type="submit">Logon</button>
+        <a href="/" class="button-link"><button type="button">Cancel</button></a>
+    </div>
     </div>
 </form>

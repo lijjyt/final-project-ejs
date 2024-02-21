@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    $('#sortDropdown').on('change', handleSortChange);
+    $('#sortOrderDropdown').on('change', handleSortChange);
+
     $('.book-tile').on('click', function () {
         const bookId = $(this).data('id');
         const title = $(this).data('title');
@@ -116,3 +120,48 @@ $(document).ready(function () {
         bookElement.data('rec', updatedBook.recommend);
     }
 });
+
+
+//sorting
+
+function sortBooks() {
+    const sortBy = document.getElementById('sortDropdown').value;
+    const sortOrder = document.getElementById('sortOrderDropdown').value;
+
+    const books = [...document.querySelectorAll('.book-tile')];
+    const sortedBooks = sortBooksBy(books, sortBy, sortOrder);
+
+    clearBooks();
+    renderBooks(sortedBooks);
+}
+
+function sortBooksBy(books, sortBy, sortOrder) {
+    return books.sort((a, b) => {
+        const aValue = a.getAttribute(`data-${sortBy}`);
+        const bValue = b.getAttribute(`data-${sortBy}`);
+
+        if (sortOrder === 'asc') {
+            return aValue.localeCompare(bValue);
+        } else if (sortOrder === 'desc') {
+            return bValue.localeCompare(aValue);
+        }
+
+        return 0;
+    });
+}
+
+function clearBooks() {
+    const booksContainer = document.getElementById('books-container');
+    booksContainer.innerHTML = ''; 
+}
+
+function handleSortChange() {
+    sortBooks();
+}
+
+function renderBooks(books) {
+    const booksContainer = document.getElementById('books-container');
+    books.forEach(book => {
+        booksContainer.appendChild(book);
+    });
+}

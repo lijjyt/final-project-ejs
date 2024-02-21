@@ -27,8 +27,6 @@ app.use('/scripts', express.static('scripts'));
 
 require("dotenv").config();
 app.use(cookieParser(process.env.SESSION_SECRET));
-app.use(session({ secret: process.env.SESSION_SECRERT, resave: true, saveUninitialized: true }));
-
 
 app.use(
     session({

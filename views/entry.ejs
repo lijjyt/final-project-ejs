@@ -1,6 +1,7 @@
 <%- include("partials/head.ejs") %>
 <%- include("partials/headers.ejs") %>
 
+<link rel="stylesheet" href="/styles/main.css">
 <h2>Add a New Book</h2>
 
 <form method="POST" action="/books/create">
@@ -20,17 +21,17 @@
 
   <label for="status">Status:</label>
   <select id="status" name="status">
-    <option value="reading">Reading</option>
-    <option value="unread">Unread</option>
-    <option value="finished">Finished</option>
+    <option value="Reading">Reading</option>
+    <option value="Unread">Unread</option>
+    <option value="Finished">Finished</option>
   </select>
 
   <label for="recommend">Recommend:</label>
   <select id="recommend" name="recommend">
-    <option value="yes">Yes</option>
-    <option value="no">No</option>
-    <option value="maybe">Maybe</option>
-    <option value="none">None</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    <option value="Maybe">Maybe</option>
+    <option value="None">None</option>
   </select>
 
   <button type="submit" class="btn">Submit</button>

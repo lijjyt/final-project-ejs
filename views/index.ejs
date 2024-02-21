@@ -2,7 +2,7 @@
 <%- include("partials/headers.ejs") %>
 
 
-
+<link rel="stylesheet" href="/styles/main.css">
 <h2>Welcome</h2>
 
 
@@ -11,6 +11,9 @@
         window.location.href = '/books';
     </script>
 <% } else { %>
-    <a href="/user/logon" class="btn">Login</a>
-    <a href="/user/register" class="btn">Register</a>
+    <div class="login-container">
+        <a href="/user/logon" class="button-link"><button type ="button">Login</button></a>
+
+        <a href="/user/register" class="button-link"><button type ="button">Register</button></a>
+    </div>
 <% } %>

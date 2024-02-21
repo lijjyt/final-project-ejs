@@ -22,14 +22,14 @@ const bookSchema = new mongoose.Schema({
 
     status: {
         type: String,
-        enum: ['reading', 'unread', 'finished'],
-        default: 'unread',
+        enum: ['Reading', 'Unread', 'Finished'],
+        default: 'Unread',
     },
 
     recommend: {
         type: String,
-        enum: ['yes', 'no', 'maybe', 'none'],
-        default: 'none',
+        enum: ['None', 'Yes', 'No', 'Maybe'],
+        default: 'None',
     },
     
 }, {timestamps:true})

@@ -1,79 +1,162 @@
+    body {
+        background-color: #3d2729; 
+        color: #eceff1; 
+        font-family: 'Georgia', serif; 
+    }
 
-body {
-    background-color: #343a40; 
-    color: #ffffff; 
-  }
-  
-  header {
-    background-color: #212529; 
-    padding: 10px;
-    text-align: center;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-  }
-  
-  .book-tile {
-    border: 1px solid #ffffff; 
-    padding: 10px;
-    margin: 10px;
-    background-color: #2d2d2d; 
-    cursor: pointer;
-  }
-  
-  .book-tile:hover {
-    background-color: #3d3d3d; 
-  }
-  
-  button {
-    background-color: #007bff; 
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3; 
-  }
-  
-  .modal-content {
-    background-color: #343a40;
-    color: #ffffff; 
-  }
-  
-  .modal-header {
-    border-bottom: 1px solid #454d55; 
-  }
-  
-  .modal-title {
-    color: #ffffff; 
-  }
-  
-  .modal-body {
-    padding: 20px;
-  }
-  
-  .modal-footer {
-    border-top: 1px solid #454d55; 
-    padding: 15px;
-  }
-  
-  .btn-danger {
-    background-color: #ed1616; 
-    color: #ffffff; 
-  }
-  
-  .close {
-    color: #ffffff;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-control {
-    background-color: #454d55; 
-    color: #ffffff;
-  }
+    header {
+        background-color: #6d4c41; 
+        padding: 10px;
+        text-align: center;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #eceff1; 
+        text-align: center; 
+    }
+
+    .book-tile {
+        border: 1px solid #6d4c41; 
+        padding: 10px;
+        margin: 10px;
+        background-color: #4e342e; 
+        cursor: pointer;
+        border-radius: 10px; 
+    }
+
+    .book-tile:hover {
+        background-color: #5d4037;
+    }
+
+    .form-group {
+        margin-bottom: 20px; 
+        text-align: center;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .form-control {
+        width: 300px; 
+        padding: 15px; 
+        border-radius: 10px;
+        border: 1px solid #6d4c41; 
+        background-color: #4e342e; 
+        color: #eceff1;
+        font-size: 18px;
+    }
+
+    .login-container {
+        text-align: center; 
+    }
+
+    .login-container button {
+        width: 150px; 
+        display: inline-block;
+        margin: 10px; 
+        background-color: #d7a088f4;
+        color: #eceff1;
+        border: none;
+        padding: 15px 30px; 
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+        text-align: center; 
+        transition: background-color 0.3s ease;
+    }
+
+    .login-container a {
+        display: block;
+        margin-bottom: 5px; 
+    }
+
+
+    button {
+        background-color: #d7a088f4; 
+        color: #eceff1;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .button-link {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .button-link button {
+        width: 150px; 
+        display: block;
+        margin: 0 auto; 
+        background-color: #d7a088f4;
+        color: #eceff1;
+        border: none;
+        padding: 15px 30px; 
+        cursor: pointer;
+        border-radius: 5px; 
+        font-size: 18px;
+        text-align: center; 
+        transition: background-color 0.3s ease; 
+    }
+
+
+    .modal-content {
+        text-align: center; 
+        background-color: #4e342e; 
+        color: #eceff1;
+        border-radius: 15px;
+    }
+    .modal-body {
+        text-align: center; /* Center text horizontally */
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #6d4c41;
+    }
+
+    .modal-title {
+        color: #eceff1;
+    }
+
+    .modal-content select {
+        padding: 10px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .modal-content select,
+    .modal-content input {
+    margin: 0 auto; /* Center input fields horizontally */
+}
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-footer {
+        border-top: 1px solid #6d4c41;
+        padding: 15px;
+    }
+    
+
+    .btn-danger {
+        background-color: #d32f2f; 
+        color: #eceff1;
+        border-radius: 5px; 
+    }
+
+    .close {
+        color: #eceff1;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        background-color: #6d4c41;
+        color: #eceff1;
+        border-radius: 5px;
+    }

@@ -42,7 +42,7 @@ if (!emailFormatRegex.test(req.body.email)) {
 }
   try {
     await User.create(req.body);
-    res.redirect("/books");
+    res.redirect("/user/logon");
   } catch (e) {
     if (e.constructor.name === "ValidationError") {
         parseVErr(e, req);
