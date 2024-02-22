@@ -8,6 +8,7 @@
     "ansi-styles": "^4.3.0",
     "archetype": "^0.13.0",
     "async": "^3.2.5",
+    "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "bootstrap": "^5.3.2",

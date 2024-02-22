@@ -11,6 +11,7 @@ const flash = require("connect-flash")
 const cookieParser = require("cookie-parser");
 const userRoutes = require('./routes/users');
 const bookRoutes = require('./routes/books');
+const searchRoutes = require('./routes/search')
 const passport = require("passport");
 const passportInit = require("./passport/passportInit");
 const auth = require("./middleware/auth");
@@ -114,8 +115,7 @@ app.get("/", (req, res) => {
 
 app.use('/user', userRoutes);
 app.use('/books',auth, bookRoutes);
-
-
+app.use('/search',auth, searchRoutes);
 
 
 
