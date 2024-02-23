@@ -10,8 +10,12 @@ exports.searchBooks = async (req, res) => {
     try {
         const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${process.env.API_KEY}`);
         const books = response.data.items; 
-
-        res.render('searchResults', { books }); 
+        const images = books.map(book => {
+            return {
+                smallThumbnail: book.volumeInfo?.imageLinks?.smallThumbnail || 'No Image Available'
+            };
+        });
+        res.render('searchResults', { books, images }); 
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

@@ -175,3 +175,35 @@
         color: #eceff1;
         border-radius: 5px;
     }
+
+    .book-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .book-tile {
+        margin: 10px;
+        text-align: center;
+        width: 15%; 
+    }
+    
+    .book-image {
+        width: 100%;
+        height: auto; 
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .book-tile {
+            width: 45%;
+        }
+    }
+    
+    @media screen and (max-width: 400px) {
+        .book-tile {
+            width: 100%; 
+        }
+    }

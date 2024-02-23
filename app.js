@@ -75,7 +75,9 @@ app.use(
         "'unsafe-eval'",    
         'https://code.jquery.com',
         'https://cdn.jsdelivr.net',
+        
       ],
+      imgSrc: ["'self'", 'https://books.google.com'],
     },
   })
 );
