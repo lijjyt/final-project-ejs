@@ -15,15 +15,6 @@
         text-align: center; 
     }
 
-    .book-tile {
-        border: 1px solid #6d4c41; 
-        padding: 10px;
-        margin: 10px;
-        background-color: #4e342e; 
-        cursor: pointer;
-        border-radius: 10px; 
-    }
-
     .book-tile:hover {
         background-color: #5d4037;
     }
@@ -32,12 +23,12 @@
         margin-bottom: 20px; 
         text-align: center;
     }
-    
+
     .form-group label {
         display: block;
         margin-bottom: 5px;
     }
-    
+
     .form-control {
         width: 300px; 
         padding: 15px; 
@@ -129,7 +120,7 @@
     .modal-content select,
     .modal-content input {
     margin: 0 auto; 
-}
+    }
 
     .modal-body {
         padding: 20px;
@@ -139,7 +130,7 @@
         border-top: 1px solid #6d4c41;
         padding: 15px;
     }
-    
+
 
     .btn-danger {
         background-color: #d32f2f; 
@@ -157,10 +148,10 @@
         background-color: rgb(218, 98, 77); 
         color: white; 
     }
-      
-      .user-info {
+        
+        .user-info {
         margin-left: auto;
-      }
+        }
 
     .close {
         color: #eceff1;
@@ -176,18 +167,54 @@
         border-radius: 5px;
     }
 
+    #library-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px;
+    }
+
+    .library-tile {
+        width: 23%;
+        margin-bottom: 20px;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+        text-align: center;
+        border: 1px solid #ddd;
+        height: 55vh;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .library-tile strong {
+        position: relative;
+        width: 100%;
+    }
+
+
+
+    .library-tile:hover {
+        background-color: #5d4037;
+    }
+
+
     .book-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
     }
 
+
     .book-tile {
         margin: 10px;
         text-align: center;
         width: 15%; 
     }
-    
+
     .book-image {
         width: 100%;
         height: auto; 
@@ -198,12 +225,18 @@
 
     @media screen and (max-width: 600px) {
         .book-tile {
-            width: 45%;
+            width: 35%;
+        }
+        .library-tile {
+            width: 35%;
         }
     }
-    
+
     @media screen and (max-width: 400px) {
         .book-tile {
             width: 100%; 
+        }
+        .library-tile {
+            width: 90%;
         }
     }

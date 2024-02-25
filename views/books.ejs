@@ -23,9 +23,9 @@
       <option value="asc">Ascending</option>
       <option value="desc">Descending</option>
   </select>
-<div id="books-container">
+<div id="library-container">
   <% books.forEach(book => { %>
-    <div class="book-tile" data-toggle="modal" data-target="#bookModal" data-id="<%= book._id.toString() %>" data-title="<%= book.title %>" data-author="<%= book.author %>" data-status="<%= book.status %>" data-start="<%= book.start %>" data-finish="<%= book.finish %>" data-rec="<%= book.recommend %>" data-created="<%= book.createdAt %>">
+    <div class="library-tile" data-toggle="modal" data-target="#bookModal" data-id="<%= book._id.toString() %>" data-title="<%= book.title %>" data-author="<%= book.author %>" data-status="<%= book.status %>" data-start="<%= book.start %>" data-finish="<%= book.finish %>" data-rec="<%= book.recommend %>" data-created="<%= book.createdAt %>">
         <strong><%= book.title %></strong> -  <%= book.author %>
     </div>
     <% }); %>
